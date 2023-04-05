@@ -51,9 +51,54 @@ in
   ];
 
   home-manager.users.nixos = { pkgs, ... }: {
-    home.stateVersion = "22.05";
+    home.stateVersion = "22.11";
     home.packages = with pkgs; [ 
-      fd
+      (nerdfonts.override {
+      fonts = [
+        "Cousine"
+        "FiraCode"
+        "RobotoMono"
+        "SourceCodePro"
+      ];
+    })
+    bat
+    entr
+    exa
+    expect
+    fd
+    fx
+    fzf
+    inter
+    inter-ui
+    material-design-icons
+    moreutils
+    neovim-qt
+    nix-index
+    nixpkgs-fmt
+    noto-fonts-emoji
+    ripgrep
+    rnix-lsp
+    tmate
+    tmux
+    nix-output-monitor
+    # VS Code
+    vscode
+    # Python 3.10
+    (python310.withPackages
+      (pkgs: with pkgs; [
+        pytest
+        numpy
+        scipy
+        ipython
+        ipykernel
+        setuptools
+        scipy
+        pip
+        matplotlib
+      ])
+    )
+    # SVG to PDF
+    svg2pdf
     ];
   };
 

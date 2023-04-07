@@ -47,6 +47,10 @@ in
     git
   ];
 
+  # zsh
+  programs.zsh.enable = true;
+  users.users.nixos.shell = pkgs.zsh;
+
   # Home-manager
   home-manager.users.nixos = {
     home.stateVersion = "22.05";
@@ -99,8 +103,6 @@ in
         matplotlib
       ])
     )
-    # SVG to PDF
-    #svg2pdf
   ];
 
   xdg.configFile."fontconfig/conf.d/20-emoji-fallback.conf".text = ''
